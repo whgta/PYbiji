@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<school type="online" loc="beijing">
+    <Student type="Web">
+        <score>math&gt;80</score>
+        <name>
+            haha
+        </name>
+        <age>18</age>
+    </Student>
+
+    <Student>
+        <name>
+            haha
+        </name>
+        <age>18</age>
+    </Student>
+</school>
