@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <School type="online" loc="beijing">
     <Teacher desc="Python" score="good">
-        <Score>math&lt;80</Score>
+        <Score>mat</Score>
         <Name>
             wh
         </Name>
