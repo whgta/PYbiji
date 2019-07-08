@@ -36,7 +36,7 @@
 - 包含模块
     - urllib.request:打开和读取url
     - urllib.error:包含urllib.request产生的常见的错误，使用try捕捉
-    - urllib.parse:包含即url的方法
+    - urllib.parse:包含解析url的方法
     - urllib.robotparse：解析robots.txt文件
     - 案例v01
     
@@ -44,4 +44,26 @@
     - chardet：可以自动检测页面文件的编码格式，但是可能有错
     - 需要安装 pip install chardet
     - 案例v02
+- urlopen 的返回对象
+    - 案例v03
+    - geturl:返回请求对象的url
+    - info：请求反馈对象的meta信息
+    - getcode：返回的http code
+- request.date 的使用
+    - 访问网络的两种方式
+        - get：
+            - 利用参数给服务器传递信息
+            - 参数为dict，然后用parse编码
+            - 案例v04
+        - post：
+            - 一般想服务器传递参数使用
+            - post是把信息自动加密处理
+            - 我们如果使用post信息，需要用到data参数
+            - 使用post·意味着Http的请求头可能需要更改
+                - Content-Type：application/x-www.form-urlencode
+                - Content-Length：数据长度
+                - 简而言之·一旦更改请求方法·请注意其他请求头部信息相适应
+            - urllib.parse.urlencode可以将字符串自动转换成上面的
+            - 案例v05
+        
     
