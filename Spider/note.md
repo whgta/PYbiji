@@ -64,6 +64,6 @@
                 - Content-Length：数据长度
                 - 简而言之·一旦更改请求方法·请注意其他请求头部信息相适应
             - urllib.parse.urlencode可以将字符串自动转换成上面的
-            - 案例v05
+            - 案例v05 
         
     
