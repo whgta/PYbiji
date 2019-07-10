@@ -64,6 +64,42 @@
                 - Content-Length：数据长度
                 - 简而言之·一旦更改请求方法·请注意其他请求头部信息相适应
             - urllib.parse.urlencode可以将字符串自动转换成上面的
-            - 案例v05 
+            - 案例v05
+            - 为了更多的设置请求信息，单纯的通过urlopen函数已经不太好用了  
+            - 需要利用request.Request类
+            -案例v06
+            
+- urllib.error
+    - URLError产生的原因
+        - 没网
+        - 服务器连接失败
+        - 不知道指定服务器
+        - 是OSError的子类
+        - 案例v07
+    - HTTPError,是URLError的一个子类
+        - 案例v08
         
-    
+    - 两者区别：
+        - HTTPError是对应HTTP请求的返回码错误，如果返回错误码是400以上的，则依法这个错误
+        - URLError对应一般是网络出现错误，包括url问题
+        - 关系区别：OSError-URLError-HttPError
+- UserAgent
+    - UserAgent:用户代理简称，UA，属于heads的一部分，服务器通过UA来判断访问这身份
+    - 常见的UA值，使用的时候可以直接复制粘贴，也可以用浏览器访问的时候抓包
+    - 设置UA可以通过两种方法：
+        - heads
+        - add_header
+        - 案例v09
+        
+- ProxyHandler处理（代理服务器）
+    - 使用代理IP·是爬虫的常用手段
+    - 获取代理服务器的地址：
+        - www.xicidaili.com
+        - www.goubanjia.com   
+    - 代理用来隐藏真实的访问中·代理 也不允许频繁访问某一个固定网站，所以代理一定要很多很多
+    - 基本使用步骤：
+        1.设置代理地址
+        2.创建ProxyHandler
+        3.创建Opener
+        4.安装Openr
+    - 案例v10   
