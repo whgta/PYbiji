@@ -102,4 +102,62 @@
         2.创建ProxyHandler
         3.创建Opener
         4.安装Openr
-    - 案例v10   
+    - 案例v10  
+    
+- cookie & session
+    - 由于http协议的无记忆性，人们为了弥补这个缺憾，所采用的一个补充协议
+    - cookie是发送给用户（即http浏览器）的一段信息，session是保存在服务器上的对应的另一半信息，用来记录用户信息
+- cookie呵session的区别
+    - 存放位置不同
+    - cookie不安全
+    - session会保存在服务器上一定时间，会过期
+    - 单个cookie保存数据不会超过4K，很多浏览器限制一个站点最多保存20个
+- session的存放位置
+    - 存在服务器端
+    - 一般情况·session是放在内存中或者数据库中
+    - 没有cookie登陆 案例v11,可以看到，没使用cookie则返回网页为未登录状态
+- 用cookie登陆
+    - 直接把cookie赋值下俩，然后手动放入请求头
+    - 案例v12
+    - http模块包含一些关于cookie的模块，通过他们我们可以自动使用cookie
+        - CookieJar
+            - 管理存储cookie，向传出的http请求添加cookie
+            - cookie存储在内存中，cookieJar实例回收cookie将消失
+        - FileCookieJar（filename,delayload=None,policy=None）:
+            - 使用文件管理cookie
+            - filename是保存cookie的文件
+        - MozillaCookieJar（filename,delayload=None,policy=None）:
+            - 创建与mocilla浏览器cookie.txt倩蓉filecookieJar实例
+        - LwpCookieJar（filename,delayload=None,policy=None）:
+            - 创建与libwww-perl标准倩蓉的Set.cookie3格式的FilecookieJar实例
+        - 他们的关系从上往下
+    - 利用cookieJar访问人人，案例v13
+        - 自动使用cookie登陆，大致流程是
+        - 打开登陆页面后自动通过用户名密码登陆
+        - 自动提取反馈回来的cookie
+        - 利用提取的cookie登陆隐私页面
+    - handler是Handler的实例，常用参看案例代码
+        - 用来处理复杂请求
+                 
+                    # 创建ciikiejar的实例
+                    cookie = cookiejar.CookieJar()
+                    # 生成cookie的管理器
+                    cookie_handler = request.HTTPCookieProcessor(cookie)
+                    # 创建一个http请求guanlq
+                    http_handler = request.HTTPHandler()
+                    
+                    # 生成https管理器
+                    https_handler = request.HTTPSHandler()
+                  
+    - 创立handler后，使用opener打开，打开后相应的业务由相应的handler处理
+    - cookie作为一个变量，打印出来 ，案例v14
+        - cookie的属性
+            - name： 名称
+            - value：值
+            - domain：可以访问此cookie的域名
+            - path：可以访问此cookie的页面路劲
+            - expires：过期时间
+            - size： 大小
+            - Http字段
+    - cookie的保存-Filecookiejar，案例v15
+        
