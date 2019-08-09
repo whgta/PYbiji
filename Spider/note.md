@@ -193,5 +193,32 @@
     - requests.request("get",url)
     - 可以带有headers和parmas参数
     - 案例v21
+- get返回内容
+    - 案例v22
     
+- post 
+    - rsp = requests.post(url,data=data)
+    - 参看案例v23
+    - data,headers要求dict类型
+- proxy
+    -    
+        proxies = {
+        "http":"address of proxy",
+        "https":"address of proxy"
+        }
         
+        rsp = requests.request("get","http:xxxxxx",proxies=proxies)
+    - 代理有可能报错，如果使用人数多，考虑安全问题，可能会被强行关闭    
+
+- 用户验证
+    - 代理验证
+    
+            #可能需要使用HTTP basic Auth，可以这样
+            # 格式为 用户名：密码@代理地址：端口地址
+            proxy = {"http":"china:123456@192.168.1.123:4444"}
+            rsp =  requests.get("http://baidu.com",proxies=proxy)
+- web客户端验证
+    - 如果遇到web客户端验证，需要添加auth = （用户名，密码）
+    
+        auth = ("test1","12346")#授权信息
+        rsp = requests.get("http://www.baidu.com",auth=auth)
