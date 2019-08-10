@@ -222,3 +222,40 @@
     
         auth = ("test1","12346")#授权信息
         rsp = requests.get("http://www.baidu.com",auth=auth)
+- cookie
+    - requests可以自动处理cookie信息
+    
+    
+                rsp =  requests.get("http://xxxxxx")
+                # 如果对方服务器给传递过来cookie信息，则可以通过反馈的cookie属性得到
+                # 返回一个cookiejar实例
+                cookiejar = rsp.cookies
+                
+                # 可以将cookiejar转换成字典形式
+                cookiedict = reques.utils.dict_from_cookiejar(cookiejar)
+                
+- session
+    - 跟服务器session不是一个东东
+    - 模拟一次会话，从客户端浏览器连接服务器开始，到客户端浏览器断开
+    - 能让我们跨请求是保持某些参数，比如在同一个session案例发出的 所有请求之间保持cookie
+    
+                    
+                    # 创建session对象，可以保持cookie值
+                    ss = requests.session()
+                    
+                    headers = {"User-Agetn":"xxxxxxxxxxxx"}
+                    data = {"name":"xxxxxxxx"}
+                    
+                    # 此时，由创建的session管理请求，负责发出请求
+                    ss.post("http://www.baidu.com",data=data,headeers=headers)
+                    
+                    rsp = ss.get("xxxxxxxxxx")
+                    
+- https请求验证ssl证书
+    - 参数verify负责表示是否需要验证ss证书，默认是True
+    -如果不需要验证ssl证书，则设置成Flash表示关闭
+    
+                
+                rsp =requests.get("http://www.baidu.com",verify=Flase)
+                # 如果用verify=True访问12306，会报错，因为证书不正确
+                
