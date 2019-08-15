@@ -33,7 +33,7 @@
 - 安装完后还需要pytesseract
     - pip install pytesseract
  
-- 读取案例
+- 读取案例l
     - 案例v39
        
     
