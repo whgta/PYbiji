@@ -28,7 +28,7 @@
     - 制作爬虫：地址 spider/xxspider.py
     - 存储内容：pipelines.py
     
-ItemPipeline
+- ItemPipeline
     - 对应的是pipelines文件
     - 爬虫提取处数据存入item后，item中保存的数据需要进一步处理，比如清晰，去重，存储等
     - pipeline需要处理process_item函数
